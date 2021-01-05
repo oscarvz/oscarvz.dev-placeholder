@@ -16,3 +16,9 @@ To run this project locally, simply just:
 - Navigate to the `public/` directory
 - Open `index.html` in your favourite browser
 - Wow!
+
+---
+
+Project is deployed on [Vercel](https://vercel.com)
+
+A special thanks to the contributors of [react-icons](https://github.com/react-icons/react-icons)
