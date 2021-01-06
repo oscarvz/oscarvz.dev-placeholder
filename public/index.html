@@ -22,20 +22,54 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        transition: ease-out 0.15s;
       }
 
       body {
+        --bg-primary: rgb(255, 255, 255);
+        --bg-secondary: rgb(245, 245, 245);
+        --text-primary: rgb(0, 0, 0);
+        --cta-primary: rgba(0, 0, 0, 0.85);
+        --cta-hover: rgba(0, 0, 0, 0.75);
+
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgb(245, 245, 245);
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      body.theme-dark {
+        --bg-primary: rgb(25, 31, 41);
+        --bg-secondary: rgb(9, 15, 24);
+        --text-primary: rgb(214, 219, 225);
+        --cta-primary: rgba(192, 217, 249, 0.75);
+        --cta-hover: rgba(245, 249, 255, 0.9);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          --bg-primary: rgb(25, 31, 41);
+          --bg-secondary: rgb(9, 15, 24);
+          --text-primary: rgb(214, 219, 225);
+          --cta-primary: rgba(192, 217, 249, 0.75);
+          --cta-hover: rgba(245, 249, 255, 0.9);
+        }
+
+        body.theme-light {
+          --bg-primary: rgb(255, 255, 255);
+          --bg-secondary: rgb(245, 245, 245);
+          --text-primary: rgb(0, 0, 0);
+          --cta-primary: rgba(0, 0, 0, 0.85);
+          --cta-hover: rgba(0, 0, 0, 0.75);
+        }
       }
 
       main {
         padding: 2rem 4rem;
         border-radius: 2rem;
-        background-color: rgb(255, 255, 255);
+        background-color: var(--bg-primary);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
@@ -50,12 +84,12 @@
       }
 
       a {
-        color: rgba(0, 0, 0, 0.85);
+        transition: ease-out 0.2s;
+        color: var(--cta-primary);
       }
 
       a:hover {
-        transition: ease-in-out 0.2s;
-        color: rgba(0, 0, 0, 0.75);
+        color: var(--cta-hover);
       }
     </style>
   </head>
@@ -98,5 +132,28 @@
         </a>
       </div>
     </main>
+
+    <script>
+      const { matches: prefersDark } = window.matchMedia('(prefers-color-scheme: dark)');
+      const currentTheme = localStorage.getItem('theme');
+      const button = document.querySelector('#theme-toggle');
+
+      const selectedPreference = prefersDark ? 'light' : 'dark';
+
+      const toggleMode = () => {
+        document.body.classList.toggle(`theme-${selectedPreference}`);
+
+        if (document.body.classList.contains(`theme-${selectedPreference}`)) {
+          window.localStorage.setItem('theme', selectedPreference);
+        } else {
+          window.localStorage.removeItem('theme');
+        }
+      };
+
+      button.addEventListener('click', toggleMode);
+
+      if (currentTheme === 'dark') document.body.classList.toggle('theme-dark');
+      if (currentTheme === 'light') document.body.classList.toggle('theme-light');
+    </script>
   </body>
 </html>
