@@ -78,10 +78,11 @@
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
+        padding: 0 1rem;
         max-width: 32rem;
       }
 
-      header .wrapper p {
+      header .wrapper > p {
         margin: 1rem 0;
       }
 
@@ -89,6 +90,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        cursor: pointer;
       }
 
       main {
@@ -122,12 +124,14 @@
         justify-content: space-evenly;
       }
 
-      .social-icons a {
+      .social-icons a,
+      header .theme-toggle {
         transition: ease-out 0.2s;
         color: var(--cta-primary);
       }
 
-      a:hover {
+      .social-icons a:hover,
+      header .theme-toggle:hover {
         color: var(--cta-hover);
       }
 
