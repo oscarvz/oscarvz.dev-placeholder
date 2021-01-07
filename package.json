@@ -2,7 +2,6 @@
   "name": "oscarvz.dev-placeholder",
   "version": "1.0.0",
   "description": "Placeholder page for oscarvz.dev for as long as the actual website is in development.",
-  "main": "src/index.js",
   "repository": "git@github.com:oscarvz/oscarvz.dev-placeholder.git",
   "author": "Oscar van Zijverden",
   "license": "MIT",
