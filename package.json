@@ -6,5 +6,11 @@
   "repository": "git@github.com:oscarvz/oscarvz.dev-placeholder.git",
   "author": "Oscar van Zijverden",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "terser src/index.js -o public/assets/js/main.js -c -m toplevel"
+  },
+  "dependencies": {
+    "terser": "^5.5.1"
+  }
 }
