@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "terser src/index.js -o public/assets/js/main.js -c -m toplevel"
+    "build": "terser src/js/darkMode.js -o public/assets/js/main.js -c -m toplevel"
   },
   "dependencies": {
     "terser": "^5.5.1"
