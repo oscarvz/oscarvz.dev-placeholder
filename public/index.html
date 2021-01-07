@@ -226,20 +226,27 @@
 
       const selectedPreference = prefersDark ? 'light' : 'dark';
 
+      const removeLocalStorage = () => window.localStorage.removeItem('theme');
+
       const toggleMode = () => {
         document.body.classList.toggle(`theme-${selectedPreference}`);
 
         if (document.body.classList.contains(`theme-${selectedPreference}`)) {
           window.localStorage.setItem('theme', selectedPreference);
         } else {
-          window.localStorage.removeItem('theme');
+          removeLocalStorage();
         }
       };
 
       button.addEventListener('click', toggleMode);
 
-      if (currentTheme === 'dark') document.body.classList.toggle('theme-dark');
-      if (currentTheme === 'light') document.body.classList.toggle('theme-light');
+      if (currentTheme === 'dark') {
+        prefersDark ? removeLocalStorage() : document.body.classList.toggle('theme-dark');
+      }
+
+      if (currentTheme === 'light') {
+        !prefersDark ? removeLocalStorage() : document.body.classList.toggle('theme-light');
+      }
     </script>
   </body>
 </html>
