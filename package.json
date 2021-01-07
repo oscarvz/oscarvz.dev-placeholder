@@ -7,9 +7,16 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "terser src/js/darkMode.js -o public/assets/js/main.js -c -m toplevel"
+    "build:js": "terser src/js/darkMode.js -o public/assets/js/main.js -c -m toplevel",
+    "build:css": "postcss src/css/style.css -o public/assets/css/style.css",
+    "build": "npm run build:js && npm run build:css"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^8.3.1",
+    "terser": "^5.5.1"
   },
   "dependencies": {
-    "terser": "^5.5.1"
+    "postcss": "^8.2.3"
   }
 }
