@@ -6,8 +6,10 @@ const selectedPreference = prefersDark ? 'light' : 'dark';
 
 const removeLocalStorage = () => window.localStorage.removeItem('theme');
 
+const toggleBodyClass = (preference) => document.body.classList.toggle(`theme-${preference}`);
+
 const toggleMode = () => {
-  document.body.classList.toggle(`theme-${selectedPreference}`);
+  toggleBodyClass(selectedPreference);
 
   if (document.body.classList.contains(`theme-${selectedPreference}`)) {
     window.localStorage.setItem('theme', selectedPreference);
@@ -18,10 +20,5 @@ const toggleMode = () => {
 
 button.addEventListener('click', toggleMode);
 
-if (currentTheme === 'dark') {
-  prefersDark ? removeLocalStorage() : document.body.classList.toggle('theme-dark');
-}
-
-if (currentTheme === 'light') {
-  !prefersDark ? removeLocalStorage() : document.body.classList.toggle('theme-light');
-}
+if (currentTheme === 'dark') prefersDark ? removeLocalStorage() : toggleBodyClass('dark');
+if (currentTheme === 'light') !prefersDark ? removeLocalStorage() : toggleBodyClass('light');
