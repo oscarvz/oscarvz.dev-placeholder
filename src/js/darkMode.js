@@ -2,20 +2,17 @@ const { matches: prefersDark } = window.matchMedia('(prefers-color-scheme: dark)
 const currentTheme = localStorage.getItem('theme');
 const button = document.querySelector('.theme-toggle');
 
-const selectedPreference = prefersDark ? 'light' : 'dark';
+const newPreference = prefersDark ? 'light' : 'dark';
 
 const removeLocalStorage = () => window.localStorage.removeItem('theme');
-
+const saveToLocalStorage = (preference) => window.localStorage.setItem('theme', preference);
 const toggleBodyClass = (preference) => document.body.classList.toggle(`theme-${preference}`);
 
 const toggleMode = () => {
-  toggleBodyClass(selectedPreference);
+  toggleBodyClass(newPreference);
 
-  if (document.body.classList.contains(`theme-${selectedPreference}`)) {
-    window.localStorage.setItem('theme', selectedPreference);
-  } else {
-    removeLocalStorage();
-  }
+  if (document.body.classList.contains(`theme-${newPreference}`)) saveToLocalStorage(newPreference);
+  else removeLocalStorage();
 };
 
 button.addEventListener('click', toggleMode);
