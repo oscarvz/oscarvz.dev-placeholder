@@ -13,6 +13,8 @@ body {
   --text-primary: rgb(0, 0, 0);
   --cta-primary: rgba(0, 0, 0, 0.85);
   --cta-hover: rgba(0, 0, 0, 0.75);
+  --icon-light: none;
+  --icon-dark: block;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -29,6 +31,8 @@ body.theme-dark {
   --text-primary: rgb(214, 219, 225);
   --cta-primary: rgba(192, 217, 249, 0.75);
   --cta-hover: rgba(245, 249, 255, 0.9);
+  --icon-light: block;
+  --icon-dark: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +42,8 @@ body.theme-dark {
     --text-primary: rgb(214, 219, 225);
     --cta-primary: rgba(192, 217, 249, 0.75);
     --cta-hover: rgba(245, 249, 255, 0.9);
+    --icon-light: block;
+    --icon-dark: none;
   }
 
   body.theme-light {
@@ -46,6 +52,8 @@ body.theme-dark {
     --text-primary: rgb(0, 0, 0);
     --cta-primary: rgba(0, 0, 0, 0.85);
     --cta-hover: rgba(0, 0, 0, 0.75);
+    --icon-light: none;
+    --icon-dark: block;
   }
 }
 
@@ -115,6 +123,14 @@ header .theme-toggle {
 .social-icons a:hover,
 header .theme-toggle:hover {
   color: var(--cta-hover);
+}
+
+.icon-light {
+  display: var(--icon-light);
+}
+
+.icon-dark {
+  display: var(--icon-dark);
 }
 
 footer {
