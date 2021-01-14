@@ -1,3 +1,5 @@
+// This dark mode implementation checks system-level preference, sets a new preference after
+// toggling and removes the saved preference in case of a changed/dynamic system-level setting
 const { matches: prefersDark } = window.matchMedia('(prefers-color-scheme: dark)');
 const currentTheme = localStorage.getItem('theme');
 const button = document.querySelector('.theme-toggle');
