@@ -21,6 +21,6 @@ button.addEventListener('click', toggleMode);
 
 if ((currentTheme === 'dark' && prefersDark) || (currentTheme === 'light' && !prefersDark)) {
   removeFromLocalStorage();
-} else {
+} else if (currentTheme) {
   toggleBodyClass(currentTheme);
 }
