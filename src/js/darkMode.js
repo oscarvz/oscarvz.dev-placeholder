@@ -1,9 +1,10 @@
 // This dark mode implementation checks system-level preference, sets a new preference after
 // toggling and removes the saved preference in case of a changed/dynamic system-level setting
 const { matches: prefersDark } = window.matchMedia('(prefers-color-scheme: dark)');
-const currentTheme = localStorage.getItem('theme');
+const savedThemePreference = localStorage.getItem('theme');
 const button = document.querySelector('.theme-toggle');
 
+const currentPreference = prefersDark ? 'dark' : 'light';
 const newPreference = prefersDark ? 'light' : 'dark';
 
 const toggleBodyClass = (preference) => document.body.classList.toggle(`theme-${preference}`);
@@ -19,8 +20,4 @@ const toggleMode = () => {
 
 button.addEventListener('click', toggleMode);
 
-if ((currentTheme === 'dark' && prefersDark) || (currentTheme === 'light' && !prefersDark)) {
-  removeFromLocalStorage();
-} else if (currentTheme) {
-  toggleBodyClass(currentTheme);
-}
+if (savedThemePreference !== currentPreference) toggleBodyClass(savedThemePreference);
