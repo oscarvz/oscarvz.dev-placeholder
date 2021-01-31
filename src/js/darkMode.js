@@ -20,4 +20,6 @@ const toggleMode = () => {
 
 button.addEventListener('click', toggleMode);
 
-if (savedThemePreference !== currentPreference) toggleBodyClass(savedThemePreference);
+if (savedThemePreference && savedThemePreference !== currentPreference) {
+  toggleBodyClass(savedThemePreference);
+}
