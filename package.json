@@ -12,7 +12,7 @@
     "build": "npm run build:js && npm run build:css"
   },
   "devDependencies": {
-    "cssnano": "^5.0.15",
+    "cssnano": "^5.0.16",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "terser": "^5.10.0"
