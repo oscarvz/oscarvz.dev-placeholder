@@ -1,0 +1,20 @@
+{
+  "name": "oscarvz.dev-placeholder",
+  "version": "1.0.0",
+  "description": "Placeholder page for oscarvz.dev for as long as the actual website is in development.",
+  "repository": "git@github.com:oscarvz/oscarvz.dev-placeholder.git",
+  "author": "oscarvz",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:js": "terser src/js/darkMode.js -o public/assets/js/main.js -c -m toplevel",
+    "build:css": "postcss src/css/style.css -o public/assets/css/style.css",
+    "build": "npm run build:js && npm run build:css"
+  },
+  "devDependencies": {
+    "cssnano": "^5.1.12",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "terser": "^5.14.1"
+  }
+}
